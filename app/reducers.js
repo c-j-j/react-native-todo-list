@@ -1,16 +1,13 @@
 const defaultState = [
-    'Item One',
-    'Item Two',
-    'Item Three',
-    'Item Three',
-    'Item Three',
-    'Item Three',
-    'Item Three',
-    'Item Three',
-    'Item Three',
-    'Item Three',
-  ]
+    'Buy Milk',
+    'Exercise tonight',
+]
 
-export default function todoApp(state = defaultState) {
-    return state
+export default function todoApp(state = defaultState, action) {
+    switch (action.type) {
+        case 'ADD_TODO':
+            return [action.text].concat(state)
+        default:
+            return state
+    }
 }
